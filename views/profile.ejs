@@ -1,0 +1,44 @@
+<html>
+<head>
+   <link href="/stylesheets/profile.css" rel="stylesheet">
+</head>
+<body>
+	<div id="screen">
+		<div id="cover"></div>
+		<div id="content">
+			<img id="user-avatar" width="120" height="120" src="https://hips.hearstapps.com/hmg-prod/images/enjoying-the-view-royalty-free-image-1582838254.jpg" alt="Avatar">
+			<p id="user-name"> <%= user.username %></p>
+			<p id="user-location">Lisbon, Portugal</p>
+			<p id="user-description">Photos from all over the world</p>
+			<div id="user-general-values">
+				<p>
+					<span>231</span>
+					<span>Posts</span>
+				</p>
+				<div class="line"></div>
+				<p>
+					<span>531</span>
+					<span>Followers</span>
+				</p>
+				<div class="line"></div>
+				<p>
+					<span>123</span>
+					<span>Following</span>
+				</p>
+			</div>
+			
+			<a href="/logout" id="logOut-btn">Log Out</a>
+			<form action="/upload" method="post" enctype="multipart/form-data">
+			   <input type="text" name="caption" placeholder="Enter caption">
+			   <input type="file" name="file">
+			   <input type="submit" value="upload">
+			</form>
+			<div id="user-publications">
+			   <% user.post.forEach((post)=>{  %>
+					<img src="/images/uploads/<%= post.image %>" alt="Публикация 0">
+			   <% }) %>
+         </div>
+		</div>
+	</div>
+</body>
+</html>
