@@ -1,0 +1,23 @@
+*{
+   padding:0;
+   margin:0;
+   box-sizing:border-box;
+}
+body,html{
+   width:100%;
+   height:100%;
+   background: black;
+   color: white;
+}
+
+#main{
+   position: absolute;
+   top: 8vh;
+   left: 0;
+   width: 100%;
+}
+#main>h1{
+   padding-left: 8vw;
+   font-size: 1.5rem;
+   font-weight: bold;
+}

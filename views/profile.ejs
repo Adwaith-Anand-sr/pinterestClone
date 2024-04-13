@@ -1,3 +1,13 @@
+<<<<<<< HEAD
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, user-scale=none">
+      <title>profile</title>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+      <link rel="stylesheet" href="stylesheets/profile.css"></link>
+   </head>
 <html>
 <head>
    <link href="/stylesheets/profile.css" rel="stylesheet">
@@ -12,6 +22,7 @@
 			<p id="user-description">Photos from all over the world</p>
 			<div id="user-general-values">
 				<p>
+					<span><%= user.post.length %></span>
 					<span>231</span>
 					<span>Posts</span>
 				</p>
@@ -27,6 +38,33 @@
 				</p>
 			</div>
 			
+			<form style="position:absolute;" action="/upload" method="post" enctype="multipart/form-data">
+			   <input type="file" name="file">
+			   <input type="submit" value="upload">
+			   <br><br>
+			   <input name="caption" placeholder="caption...">
+            <br><br>
+			</form>
+			
+			<a href="/posts"><button id="posts-link">Posts</button></a>
+			
+         <div id="user-publications">
+            <% user.post.forEach((post) => { %>
+               <% 
+               const imageUrl = `https://storage.googleapis.com/pinclone-000.appspot.com/${post.image}`;
+               %>
+               <img src="<%=imageUrl %>">
+            <% }) %>
+         </div>
+		</div>
+	</div>
+	<footer>
+	   <a href="/feeds"><i class="bi bi-house-door-fill"></i></a>
+	</footer>
+	
+	<script>
+	
+	</script>
 			<a href="/logout" id="logOut-btn">Log Out</a>
 			<form action="/upload" method="post" enctype="multipart/form-data">
 			   <input type="text" name="caption" placeholder="Enter caption">

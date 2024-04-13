@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="stylesheets/posts.css" rel="stylesheet"></link>
+</head>
+<body>
+   <div class="w-full bg-black fixed z-50 flex justify-between items-center px-[5vw] h-[6vh] ">
+      <h1 class="font-black text-[1.1rem]">Posts</h1>
+      <a class="font-extrabold text-[0.8rem] text-blue-500">Follow</a>
+   </div>
+   
+   <div id="main">
+      <% user.post.forEach((item)=>{ %>
+         <% const imageUrl = `https://storage.googleapis.com/pinclone-000.appspot.com/${item.image}`; %>
+         <div id="<%= item.image %>" class="box w-full h-[70vh] overflow-hidden">
+            <div class="dets h-[5.5vh] w-full flex gap-[3vw] items-center">
+               <div class="dp w-[8vw] h-[8vw] border border-white rounded-full ml-[2.5vw]">
+                  <img src="">
+               </div>
+               <h1 class="font-semibold text-[0.8rem]"><%= user.username %></h1>
+            </div>
+            <img class="w-full h-[70%] object-cover" src="<%= imageUrl %>" alt="Post Image">
+            <div class="relative z-20 w-full flex justify-between my-[1vh] px-[3vw]">
+               <div class="text-[1.5rem] opacity-[0.9] pl-[1vw] flex gap-[4vw]">
+                  <i class="bi bi-heart"></i>
+                  <i class="bi bi-chat"></i>
+                  <i class="bi bi-send"></i>
+               </div>
+               <div class="text-[1.5rem] ">
+                  <i class="bi bi-bookmark"></i>
+               </div>
+            </div>
+            <h2 class="likes px-[3vw] font-black text-[0.8rem]">1,000 likes</h2>
+            <div class="description h-[5vh] text-[0.8rem] py-[1vh] px-[3vw]"><span class="mr-[3vw]"><%= user.username %> :</span> add your description here...</div>
+            <h2 class="px-[3vw] text-[0.8rem] font-thin opacity-[0.5]">2 days ago</h2>
+         </div>
+      <% }) %>
+   </div>
+</body>
+</html>

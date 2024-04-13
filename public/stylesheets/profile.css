@@ -13,6 +13,7 @@ body {
 	align-items: center;
 	justify-content: center;
 	background: #d3eaff;
+
 }
 
 .line {
@@ -23,6 +24,8 @@ body {
 }
 
 #screen {
+	position: absolute;
+	top: 0;
 	position: relative;
 	width: 100%;
 	height: 100%;
@@ -35,7 +38,8 @@ body {
 	width: 100%;
 	height: 30%;
 	background-image: url("https://media.self.com/photos/5f0885ffef7a10ffa6640daa/4:3/w_5240,h_3929,c_limit/travel_plane_corona.jpeg");
-	background-blend-mode: multiply;
+	background-position: center;
+	background-size: cover;
 	background-size: 100%;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -48,6 +52,8 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	background: #040404;
+	color: white;
 	background: whitesmoke
 }
 
@@ -64,6 +70,7 @@ body {
 }
 
 #screen #content #user-name {
+	font-size: 1.2rem;
 	font-size: 2.5rem;
 	font-weight: bold;
 	margin: 5vh 0 0 0;
@@ -71,6 +78,7 @@ body {
 }
 
 #screen #content #user-location {
+	font-size: 0.5rem;
 	font-size: 1rem;
 	color: #b4b4b0;
 	margin: 5px 0;
@@ -78,6 +86,8 @@ body {
 }
 
 #screen #content #user-description {
+	font-size: 0.7rem;
+	margin: 1vh 0 0 0;
 	font-size: 16px;
 	color: #6c7171;
 	margin: 10px 0 0 0;
@@ -90,6 +100,7 @@ body {
 	flex-direction: row;
 	align-items: center;
 	margin: 2vh 0;
+
 }
 
 #screen #content #user-general-values p {
@@ -102,6 +113,13 @@ body {
 }
 
 #screen #content #user-general-values p span:nth-child(1) {
+	font-size: 1rem;
+	font-weight: bold;
+}
+
+#screen #content #user-general-values p span:nth-child(2) {
+	font-size: 0.6rem;
+	margin: 3px 0 0 0;
 	font-size: 2rem;
 	font-weight: bold;
 	color: black;
@@ -136,12 +154,38 @@ body {
 	width: 100%;
 	margin: 1vh 0;
 	display: grid;
+	gap: 0.5vw;
 	gap: 0.8vw;
 	grid-template-columns: repeat(3, 1fr);
 	overflow: auto;
 	overflow-x: hidden;
 }
 
+#screen #content #user-publications img{
+	width: 100%;
+	height: 15vh;
+	object-fit: cover;
+	background-position: center;
+}
+
+footer{
+   position: fixed;
+   width: 100%;
+   height: 7vh;
+   top: 88vh;
+   border-top: 1px solid #ffffff1c;
+   display: flex;
+   align-items: top;
+}
+footer i{
+   color: white;
+   font-size: 1.8rem;
+   margin-left: 6vw;
+   opacity: 0.9;
+}
+footer a{
+   margin: 0.8vh 0;
+}
 #screen #content #user-publications img {
 	width: 100%;
 	height: 15vh;

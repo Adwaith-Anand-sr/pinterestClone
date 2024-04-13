@@ -22,6 +22,16 @@ const userschema =mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: "post"
    }],
+   followers: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "followers"
+   }],
+   followings: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "followings"
+   }],
+   dp: String,
+   cover: String,
    dp: String,
    email:{
       type: String,

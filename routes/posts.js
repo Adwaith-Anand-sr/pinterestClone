@@ -10,6 +10,7 @@ const postschema= mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: "User"
    },
+   username :String,
    date:{
       type: Date,
       default: Date.now

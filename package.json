@@ -6,6 +6,10 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+<<<<<<< HEAD
+    "bootstrap-icons": "^1.11.3",
+=======
+>>>>>>> origin/master
     "connect-flash": "^0.1.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
@@ -13,6 +17,10 @@
     "ejs": "~2.6.1",
     "express": "~4.16.1",
     "express-session": "^1.18.0",
+<<<<<<< HEAD
+    "firebase-admin": "^12.0.0",
+=======
+>>>>>>> origin/master
     "http-errors": "~1.6.3",
     "mongoose": "^8.3.0",
     "morgan": "~1.9.1",
