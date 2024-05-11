@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+   <script src="https://cdn.tailwindcss.com"></script>
+   <style> 
+      .upload button:active{
+         background: rgb(53,99,235);
+      }
+   </style>
+</head>
+<body class="w-full h-screen overflow-x-hidden select-none">
+   <nav class="w-full flex items-center justify-end px-[3vw] py-[1vh]">
+      <i onclick="fetchMessage()" class="bi bi-chat text-[1.5rem]"></i> 
+   </nav>
+   <main style="background-position: center; background-image: url(<%= user.cover %>); background-size: cover;"  class="w-full h-screen ">
+      <div class="design relative overflow-hidden mx-[3%] relative top-[18%] w-[94%] h-[70%] bg-transparent">
+         <div class="transparent1 absolute w-[110%] h-[100%] top-[1.35%] rotate-[-2deg] bg-[rgba(255,255,255,0.1)]"></div>
+         <div class="transparent2 absolute top-[8.3%] left-[12%] w-[110%] h-[100%] rotate-[-15deg] bg-[rgba(255,255,255,0.1)]"></div>
+         <div class="transparent3 absolute top-[15%] left-[-25%] w-[110%] h-[100%] rotate-[18deg] bg-[rgba(255,255,255,0.1)]"></div>
+         <div class="transparent3 absolute top-[25%] left-[-25%] w-[110%] h-[100%] rotate-[18deg] bg-[rgba(255,255,255,0.1)]"></div>
+         <div class="absolute white w-[130%] mt-[3%] h-[120%] ml-[2%] rotate-[65deg] bg-[rgb(235,234,234)]"></div>
+         <div class="context pl-[8vw] absolute bottom-0 w-full h-[75%] bg-transparent">
+            <div style="background-position:top center; background-image: url(<%= user.cover %>); background-size: cover;" class="dp relative top-[-3%] w-[10vh] h-[10vh] border rounded-[50%]"></div>
+            <div class="name text-[6.5vw] capitalize font-black tracking-tighter "><%= user.fullname %></div>
+            <div class="username text-[3vw] font-black tracking-tighter "><%= user.username %></div>
+            <div class="hobbies text-[3vw] font-black tracking-tighter "><%= %></div>
+            
+            <div class="ctrlButtons mt-[5vh] mb-[2.5vh] gap-[1vw] font-black ml-[-8vw]  px-[1vw] grid grid-cols-2">
+               <button class="flex shadow h-[6vh] border-black items-center gap-[0.5vw] justify-center border rounded-md">
+                  Add
+                  <i class="bi bi-plus text-[1.5rem]"></i>
+               </button>
+               <button class="flex shadow h-[6vh] items-center gap-[1vw] justify-center border border-black rounded-md">
+                  Messege
+                  <i class="bi bi-chat text-[1.5rem]"></i>
+               </button>
+            </div>
+            
+            <div class="dets relative ml-[-4vw] h-[20%] w-full grid grid-cols-3">
+               <div onclick="fetchposts()" class="posts relative flex flex-col justify-center items-center">
+                  <span><%= user.posts.length %></span>
+                  <h1>Posts</h1>
+                  <div class="line absolute right-0 inline-block w-[1px] h-[60%] bg-zinc-800"></div>
+               </div>
+               <div class="posts relative flex flex-col justify-center items-center">
+                  <span><%= user.followers %></span>
+                  <h1>Followers</h1>
+                  <div class="line absolute right-0 inline-block w-[1px] h-[60%] bg-zinc-800"></div>
+               </div>
+               <div class="posts relative flex flex-col justify-center items-center">
+                  <span><%= user.followings %></span>
+                  <h1>Followings</h1>
+               </div>
+            </div>
+            <div class="upload relative">
+               <button class="absolute bg-blue-500 shadow mt-[2vh] ml-[-8%] left-1/2 -translate-x-1/2 py-[0.5vh] px-[5vw] rounded-lg flex items-center justify-center gap-[1vw]">
+                  Post
+                  <i class="bi bi-plus text-[1.5rem]"></i>
+               </button>
+            </div>
+         </div>
+      </div>
+   </main>
+   
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+   <script src="https://cdn.socket.io/4.7.5/socket.io.min.js" integrity="sha384-2huaZvOR9iDzHqslqwpR87isEmrfxqyWOF7hr7BY6KG0+hVKLoEXMPUJw3ynWuhO" crossorigin="anonymous"></script>
+   <script src="../../javascripts/script.js"></script>
+
+   <script>
+   const socket = io("http://localhost:4000")
+   let username = "<%= user.username %>";
+   socket.emit("join", username);
+
+      let postAddBtn = document.querySelector(".upload button")
+      
+      postAddBtn.addEventListener("click",()=>{
+         window.location.href = "/upload"
+      })
+      
+      function fetchposts(){
+         window.location.href = "/posts"
+      }
+      function fetchMessage(){
+         window.location.href = "/message"
+      }
+
+   </script>
+</body>
+</html>

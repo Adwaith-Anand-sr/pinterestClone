@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+   <script src="https://cdn.tailwindcss.com"></script>
+   <style>
+      #uploadBtn{
+         background: linear-gradient(to right bottom, hsl(273, 67.2%, 39.4%), hsl(330, 81.2%, 60.4%), hsl(347, 77.2%, 49.8%));
+      }
+      #uploadBtn:active{
+         text-decoration: line-through;
+      }
+   </style>
+</head>
+<body class="w-full h-screen ">
+   <main style="background-image: url(<%= user.cover %>); background-size: cover; background-position: center; backdrop-filter: blur(1.85px);"  class="w-full h-screen overflow-hidden">
+      <nav class="w-full flex gap-[3vw] text-[1.25rem] items-center h-[8%] px-[6vw] bg-[rgba(15,15,16,0.85)]">
+         <i onclick="goBack()" class="bi bi-arrow-left inline-flex text-white text-[1.3rem] font-black rounded-full items-center justify-center h-[10vw] w-[10vw]"></i>
+         <h1 class="text-white font-black tracking-tight">Upload</h1>
+      </nav>
+      <div class="relative w-full h-[92%] bg-[rgb(0,0,0,0.4)]" style="backdrop-filter: blur(1.85px);" >
+         <form id="uploadForm" method="post" target="/upload" enctype="multipart/form-data">
+            <input name="image" required class="relative mt-[5vh] rounded-lg mb-[2vh] left-1/2 -translate-x-1/2 py-[1vh] px-[4vw] bg-amber-400" type="file">
+            <input name="caption" required class="relative my-[2vh] rounded-lg text-white w-[80%] left-1/2 -translate-x-1/2 py-[1vh] px-[5vw] bg-transparent border" type="text" placeholder="Captions..">
+            <input name="location" class="relative my-[2vh] rounded-lg text-white w-[80%] left-1/2 -translate-x-1/2 py-[1vh] px-[5vw] bg-transparent border" type="text" placeholder="location">
+            <input name="mentions" class="relative my-[2vh] rounded-lg text-white w-[80%] left-1/2 -translate-x-1/2 py-[1vh] px-[5vw] bg-transparent border" type="text" placeholder="@mentions">
+            <button id="uploadBtn" class="relative my-[2vh] text-white left-1/2 -translate-x-1/2 py-[1vh] px-[8vw] rounded-xl border">Upload</button>
+         </form>
+      </div>
+   </main>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+   <script src="/javascripts/script.js"></script>
+</body>
+</html>
